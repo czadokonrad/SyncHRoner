@@ -48,10 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\components\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\data\dtos\profileCreateDto.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\data\dtos\profileDto.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\data\dtos\profileUpdateDto.ts" />
