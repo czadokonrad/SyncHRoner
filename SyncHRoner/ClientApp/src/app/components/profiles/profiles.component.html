@@ -1,0 +1,51 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<button type="button" (click)="openDialog()" mat-fab color="primary">
+  <mat-icon>add</mat-icon>
+</button>
+<div class="profiles-container">
+  <div class="mat-card-wrapper" *ngFor="let profile of allProfiles">
+    <mat-card class="mat-card-wrapper__card">
+      <mat-card-title>Profile snapshot</mat-card-title>
+      <mat-card-subtitle>{{ profile.firstName }} {{ profile.lastName }}</mat-card-subtitle>
+      <div class="mat-card-wrapper__profile-details">
+        <div class="mat-card-wrapper__profile-details--data">
+          <mat-form-field class="mat-form-field-line-wrapper__field">
+            <mat-label>First name</mat-label>
+            <input matInput [value]="profile.firstName" disabled>
+          </mat-form-field>
+        </div>
+        <div class="mat-card-wrapper__profile-details--data">
+          <mat-form-field class="mat-form-field-line-wrapper__field">
+            <mat-label>Last name</mat-label>
+            <input matInput [value]="profile.lastName" disabled>
+          </mat-form-field>
+        </div>
+        <div class="mat-card-wrapper__profile-details--data">
+          <mat-form-field class="mat-form-field-line-wrapper__field">
+            <mat-label>Phone</mat-label>
+            <input matInput [value]="profile.phone" disabled>
+          </mat-form-field>
+        </div>
+        <div class="mat-card-wrapper__profile-details--data">
+          <mat-form-field class="mat-form-field-line-wrapper__field">
+            <mat-label>Email</mat-label>
+            <input matInput [value]="profile.email" disabled>
+          </mat-form-field>
+        </div>
+        <div class="mat-card-wrapper__profile-details--data">
+          <app-star-rating [rating]="profile.rating" [isEditable]="false"></app-star-rating>
+        </div>
+      </div>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" [routerLink]="['/profile', profile.id]">
+          Show profile details
+          <mat-icon *ngIf="loading">
+            <mat-spinner diameter="20" color="accent">
+            </mat-spinner>
+          </mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

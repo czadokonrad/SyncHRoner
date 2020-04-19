@@ -1,0 +1,29 @@
+.dashboard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  
+    &--message > h3 {
+      font-family: sans-serif;
+      text-transform: uppercase;
+
+    }
+
+    &--links {
+      margin-top: 3rem;
+    }
+
+    &--links button {
+      text-transform: uppercase;
+    }
+  }
+}

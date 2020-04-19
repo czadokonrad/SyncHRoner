@@ -1,0 +1,20 @@
+.not-found-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width:100%;
+  text-align:center;
+
+  &__message {
+    font-size: 10rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__message-detail {
+      font-size: 2rem;
+      color: rgb(128, 128, 128);
+      margin-top: 5rem;
+  }
+}

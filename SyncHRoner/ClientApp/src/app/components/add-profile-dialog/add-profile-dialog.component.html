@@ -1,0 +1,106 @@
+<form (ngSubmit)="saveProfile()" [formGroup]="newProfileForm" novalidate>
+  <h1 mat-dialog-title>Add new profile</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName">
+      <mat-error *ngIf="newProfileForm.get('firstName').errors?.minlength">
+        First name has to contain at least 3 characters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('firstName').errors?.maxlength">
+        First name has to contain at most 50 characters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('firstName').errors?.pattern">
+        First name can contain only letters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('firstName').errors?.required">
+        First name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf="newProfileForm.get('lastName').errors?.minlength">
+        Last name has to contain at least 3 characters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('lastName').errors?.maxlength">
+        Last name has to contain at most 50 characters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('lastName').errors?.pattern">
+        Last name can contain only letters
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('lastName').errors?.required">
+        Last name is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birthdate</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select gender</mat-label>
+      <mat-select formControlName="gender">
+        <mat-option *ngFor="let gender of genders | enumToArray" [value]="gender.name">{{ gender.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Nationalities</mat-label>
+      <mat-select formControlName="nationalities" multiple>
+        <mat-option *ngFor="let country of countries| enumToArray" [value]="country.name">{{ country.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="phone">
+      <mat-error *ngIf="newProfileForm.get('phone').errors?.minlength">
+        Phone number has to be at least 9 numbers long
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('phone').errors?.maxlength">
+        Phone number has to be at most 11 numbers long
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('phone').errors?.required">
+        Phone number is required
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('phone').errors?.pattern">
+        Phone number can contain only digits
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="newProfileForm.get('email').errors?.email">
+        Email is invalid
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('email').errors?.required">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('email').errors?.maxlength">
+        Email has to be at most 255 characters long
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Rating</mat-label>
+      <input matInput formControlName="rating">
+      <mat-error *ngIf="newProfileForm.get('rating').errors?.max">
+        Rating can be at most 5
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('rating').errors?.min">
+        Rating can be at least 0
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('rating').errors?.required">
+        Rating is required
+      </mat-error>
+      <mat-error *ngIf="newProfileForm.get('rating').errors?.pattern">
+        Rating can be only digit
+      </mat-error>
+    </mat-form-field>
+  </div>
+    <button type="button" mat-button (click)="onNoClick()">Cancel</button>
+    <button type="submit" color="primary" mat-button [disabled]="!newProfileForm.valid">Save</button>
+</form>
+
+
+
+

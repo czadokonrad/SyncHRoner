@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav-container__sidenav" fixedInViewport="false"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [ngClass]="{hidden: !(isHandset$ | async)}"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="is-active">Dashboard</a>
+      <a mat-list-item [routerLink]="['/profiles']" routerLinkActive="is-active">Profiles</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()"
+              *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+ 
+      <span>
+        <mat-icon>group</mat-icon>
+        SyncHRoner
+      </span>
+      <div class="mat-toolbar__link-container">
+        <a mat-list-item class="mat-toolbar__link-container--link" [routerLink]="['/dashboard']" routerLinkActive="is-active">Dashboard</a>
+        <a mat-list-item class="mat-toolbar__link-container--link" [routerLink]="['/profiles']" routerLinkActive="is-active">Profiles</a>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
