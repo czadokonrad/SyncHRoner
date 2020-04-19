@@ -13,6 +13,8 @@ import { ProfileDto } from '../../data/dtos/profileDto';
 })
 export class ProfilesComponent implements OnInit {
 
+
+  
   allProfiles: ProfileDto[];
   loading: boolean = false;
 
@@ -56,6 +58,23 @@ export class ProfilesComponent implements OnInit {
     this.snackBar.open(message, action, {
       duration: 5000
     });
+  }
+
+  getRatingColor(rating: number): string {
+    if (rating < 1) {
+      return "rating-terrible";
+    }
+    else if (rating <= 2) {
+      return "rating-bad";
+    }
+    else if (rating < 4) {
+      return "rating-average";
+    }
+    else if (rating < 5) {
+      return "rating-good";
+    }
+    else
+      return "rating-perfect";
   }
 
 }

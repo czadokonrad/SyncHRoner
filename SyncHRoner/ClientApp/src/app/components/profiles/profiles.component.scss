@@ -90,3 +90,28 @@
   border-width: 5px;
 }
 
+.rating {
+    @media(min-width:1330px) {
+        max-width: 2rem;
+    }
+}
+
+.rating-terrible {
+    color: red !important;
+}
+
+.rating-bad {
+    color: deeppink !important;
+}
+
+.rating-average {
+    color: orange !important;
+}
+
+.rating-good {
+    color: cornflowerblue !important;
+}
+
+.rating-perfect {
+    color: forestgreen !important;
+}

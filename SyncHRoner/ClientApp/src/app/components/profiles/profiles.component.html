@@ -34,7 +34,10 @@
           </mat-form-field>
         </div>
         <div class="mat-card-wrapper__profile-details--data">
-          <app-star-rating [rating]="profile.rating" [isEditable]="false"></app-star-rating>
+          <mat-form-field class="mat-form-field-line-wrapper__field rating">
+            <mat-label>Rating</mat-label>
+            <input matInput [class]="getRatingColor(profile.rating)" [value]="profile.rating" disabled>
+          </mat-form-field>
         </div>
       </div>
       <mat-card-actions>
