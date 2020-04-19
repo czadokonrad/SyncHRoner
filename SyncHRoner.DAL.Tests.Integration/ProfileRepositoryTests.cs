@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
 using SyncHRoner.DAL.Repositories;
@@ -24,6 +25,7 @@ namespace SyncHRoner.DAL.Tests.Integration
         {
             var mockRepositoryLogger = new Mock<ILogger<ProfileRepository>>();
             _context = new SyncHRonerContext();
+            _context.Database.Migrate();
             _context.SeedData();
             _repository = new ProfileRepository(_context, mockRepositoryLogger.Object);
         }
