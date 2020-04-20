@@ -91,27 +91,27 @@
 }
 
 .rating {
-    @media(min-width:1330px) {
-        max-width: 2rem;
-    }
-}
+  @media(min-width:1330px) {
+    max-width: 2rem;
+  }
 
-.rating-terrible {
+  &-terrible {
     color: red !important;
-}
+  }
 
-.rating-bad {
+  &-bad {
     color: deeppink !important;
-}
+  }
 
-.rating-average {
+  &-average {
     color: orange !important;
-}
+  }
 
-.rating-good {
+  &-good {
     color: cornflowerblue !important;
-}
+  }
 
-.rating-perfect {
+  &-perfect {
     color: forestgreen !important;
+  }
 }

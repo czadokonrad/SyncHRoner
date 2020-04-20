@@ -62,19 +62,19 @@ export class ProfilesComponent implements OnInit {
 
   getRatingColor(rating: number): string {
     if (rating < 1) {
-      return "rating-terrible";
+      return "rating rating-terrible";
     }
     else if (rating <= 2) {
-      return "rating-bad";
+      return "rating rating-bad";
     }
     else if (rating < 4) {
-      return "rating-average";
+      return "rating rating-average";
     }
     else if (rating < 5) {
-      return "rating-good";
+      return "rating rating-good";
     }
     else
-      return "rating-perfect";
+      return "rating rating-perfect";
   }
 
 }
